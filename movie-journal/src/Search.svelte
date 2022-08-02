@@ -3,7 +3,7 @@
     import { createEventDispatcher } from 'svelte';
     const dispatch = createEventDispatcher()
 
-    let searchTerm =''
+    let searchTerm = ''
 
     const search = (e) => {
         searchTerm = e.target.value
