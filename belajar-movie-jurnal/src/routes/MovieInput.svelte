@@ -10,7 +10,10 @@
     }
 
     const inputScore = (e) => {
-        score = e.target.value
+        // console.log(e.target.value, "Ini target value", typeof(e.target.value))
+        // console.log(score, "Ini score sebelum di-assign", typeof(score))
+        score = +e.target.value
+        // console.log(score, "Ini score setelah di-assign", typeof(score))
     }
 
     const submitInput = () => {
