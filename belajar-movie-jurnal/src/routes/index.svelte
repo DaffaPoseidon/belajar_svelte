@@ -10,7 +10,7 @@
 
 <div class="main">
     <h1>{judul}</h1>
-    <MovieInput on:submitAndroid={submitAndroid}/>
+    <MovieInput on:submitAndroid={event => submitAndroid(event.detail.android)}/>
 </div>
 
 <style>
