@@ -1,21 +1,12 @@
 <script>
     import ContactCard from './ContactCard.svelte'
 
-<<<<<<< HEAD
     let name = ""
     let count = 0
     let jobTitle = ""
     let linkImage = ""
     let description = ""
     let formState = ""
-=======
-    let name = "2B"
-    let count = 0
-    let jobTitle = "Android"
-    let linkImage = ""
-    let description = ""
-    let contactAdded = ""
->>>>>>> d9d4cd0ae9ab3a26f5602d1753d050b1ff98c830
 
     $: reactiveName = name.toUpperCase()
     $: if(name === "9S"){
@@ -37,15 +28,13 @@
     }
 
     const addContact = () => {
-<<<<<<< HEAD
         if(name.trim().length == 0 || jobTitle.trim().length == 0 || linkImage.trim().length == 0 || description.trim().length == 0){
             formState = "invalid"
             return;
         }
         formState = "valid"
-=======
         contactAdded = true
->>>>>>> d9d4cd0ae9ab3a26f5602d1753d050b1ff98c830
+
     }
 
 </script>
@@ -60,17 +49,13 @@
     <input type="url" placeholder="Masukkan link" bind:value={linkImage}>
     <textarea rows="10" bind:value={description}></textarea>
     <button on:click="{addContact}">Add Contact</button>
-<<<<<<< HEAD
+
     {#if formState === "valid"}
 	    <ContactCard userName={name} userJobTitle={jobTitle} userLinkImage={linkImage} userDescription={description}/>
     {:else if formState === "invalid"}
         <p>The form state is invalid!</p>
     {:else}
         <p>Please fulfill the the columns above</p>
-=======
-    {#if contactAdded}
-	    <ContactCard userName={name} userJobTitle={jobTitle} userLinkImage={linkImage} userDescription={description}/>
->>>>>>> d9d4cd0ae9ab3a26f5602d1753d050b1ff98c830
     {/if}
 </div>
 
