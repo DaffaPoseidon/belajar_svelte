@@ -8,8 +8,10 @@
     let description = ""
     let formState = ""
 
+    let createdContacts = [];
+
     $: reactiveName = name.toUpperCase()
-    $: if(name === "9S"){
+    $: if(name === "9S"){s
         console.log(name)
         count = 9
     }
@@ -32,9 +34,13 @@
             formState = "invalid"
             return;
         }
-        formState = "valid"
-        contactAdded = true
-
+        createdContacts = [...createdContacts, {
+            name: name,
+            title: jobTitle,
+            image: linkImage,
+            desc: description,
+        }],
+        formState = "done"
     }
 
 </script>
@@ -50,14 +56,21 @@
     <textarea rows="10" bind:value={description}></textarea>
     <button on:click="{addContact}">Add Contact</button>
 
-    {#if formState === "valid"}
-	    <ContactCard userName={name} userJobTitle={jobTitle} userLinkImage={linkImage} userDescription={description}/>
-    {:else if formState === "invalid"}
+    {#if formState === "invalid"}
         <p>The form state is invalid!</p>
     {:else}
         <p>Please fulfill the the columns above</p>
     {/if}
 </div>
+
+{#each createdContacts as contact}
+	<ContactCard 
+        userName={contact.name} 
+        userJobTitle={contact.title} 
+        userLinkImage={contact.image} 
+        userDescription={contact.desc}
+	/>
+{/each}
 
 <style>
     .main{
