@@ -35,12 +35,20 @@
             return;
         }
         createdContacts = [...createdContacts, {
+            id: Math.random(),
             name: name,
             title: jobTitle,
             image: linkImage,
             desc: description,
         }],
         formState = "done"
+    }
+
+    const deleteFirst = () => {
+        createdContacts = createdContacts.slice(1)
+    }
+    const deleteLast = () => {
+        createdContacts = createdContacts.slice(0, -1)
     }
 
 </script>
@@ -55,6 +63,8 @@
     <input type="url" placeholder="Masukkan link" bind:value={linkImage}>
     <textarea rows="10" bind:value={description}></textarea>
     <button on:click="{addContact}">Add Contact</button>
+    <button on:click="{deleteFirst}">Delete First</button>
+    <button on:click="{deleteLast}">Delete Last</button>
 
     {#if formState === "invalid"}
         <p>The form state is invalid!</p>
@@ -63,13 +73,16 @@
     {/if}
 </div>
 
-{#each createdContacts as contact}
+{#each createdContacts as contact, i (contact.id)}
+    <h2># {i + 1}</h2>
 	<ContactCard 
         userName={contact.name} 
         userJobTitle={contact.title} 
         userLinkImage={contact.image} 
         userDescription={contact.desc}
 	/>
+{:else}
+    <p>Please add some contacts</p>
 {/each}
 
 <style>

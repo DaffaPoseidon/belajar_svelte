@@ -3,12 +3,14 @@
     export let userJobTitle
     export let userLinkImage
     export let userDescription
+
+    const initialName = userName
 </script>
 
 <div class="main">
     <header>
         <div class="biodata">
-            <h1>{userName}</h1>
+            <h1>{userName} / {initialName}</h1>
             <h2>{userJobTitle}</h2>
         </div>
         <div class="{userLinkImage ? "image" : "image-placeholder"}">
