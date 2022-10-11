@@ -1,17 +1,32 @@
 <script>
-    import Product from "./components/Product.svelte";
+    import Modal from "./components/Modal.svelte";
+import Product from "./components/Product.svelte";
 
-    function addToCart(event){
-        console.log(event)
-    }
+    let products = [
+        {
+            id: "p1",
+            title: "A book",
+            price: "9.99",
+        },
+    ];
 
-    function deleteProduct(event){
-        console.log(event.detail)
-    }
+    const addToCart = (event) => {
+        console.log(event);
+    };
+
+    const deleteProduct = (event) => {
+        console.log(event.detail);
+    };
 </script>
 
-<Product
-    productTitle="A Book"
-    on:add-to-cart="{addToCart}"
-    on:delete="{deleteProduct}"
-/>
+{#each products as product}
+    <Product
+        {...product}
+        on:add-to-cart={addToCart}
+        on:delete={deleteProduct}
+    />
+{/each}
+
+<Modal>
+    <h1>Hello!</h1>
+</Modal>
