@@ -4,4 +4,7 @@
 
 </script>
 
-<Product productTitle="A Book" on:click={() => alert('Ahahaha')}/>
+<Product
+    on:add-to-cart="{() => alert('Add to cart!')}"
+    on:click="{() => alert('Delete!')}"
+/>
