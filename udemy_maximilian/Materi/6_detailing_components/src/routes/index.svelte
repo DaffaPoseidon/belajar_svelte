@@ -28,5 +28,7 @@ import Product from "./components/Product.svelte";
 {/each}
 
 <Modal>
-    <h1>Hello!</h1>
+    <h1 slot="header">Hello!</h1>
+    <p>This work!</p>
+    <button slot="footer">Confirm</button>
 </Modal>
