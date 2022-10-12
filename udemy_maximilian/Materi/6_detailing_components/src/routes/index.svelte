@@ -3,6 +3,7 @@
 import Product from "./components/Product.svelte";
 
     let showModal = false;
+    let closeable = false;
 
     let products = [
         {
@@ -34,9 +35,11 @@ import Product from "./components/Product.svelte";
 {#if showModal}
 	<Modal 
         on:cancel="{() => showModal = false}" 
-        on:close="{() => showModal = false}">
+        on:close="{() => showModal = false}"
+        let:didAgree={closeable}
+    >
 	    <h1 slot="header">Hello!</h1>
 	    <p>This work!</p>
-	    <button slot="footer" on:click="{() => showModal = false}">Confirm</button>
+	    <button slot="footer" on:click="{() => (showModal = false)}" disabled={!closeable}>Confirm</button>
 	</Modal>
 {/if}
