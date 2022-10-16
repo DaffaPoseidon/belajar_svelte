@@ -1,18 +1,34 @@
 {
-	"name": "belajar-movie-jurnal",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"package": "svelte-kit package",
-		"preview": "vite preview"
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-auto": "next",
-		"@sveltejs/kit": "next",
-		"rollup-plugin-svelte": "^7.1.0",
-		"svelte": "^3.49.0",
-		"vite": "^3.0.0"
-	},
-	"type": "module"
+    "name": "svelte-dashboard-starter",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "svelte-kit dev",
+        "build": "svelte-kit build",
+        "package": "svelte-kit package",
+        "preview": "svelte-kit preview",
+        "prepare": "svelte-kit sync",
+        "cypress:open": "cypress open"
+    },
+    "devDependencies": {
+        "@faker-js/faker": "^7.3.0",
+        "@sveltejs/adapter-auto": "next",
+        "@sveltejs/kit": "next",
+        "cypress": "^10.4.0",
+        "svelte": "^3.49.0"
+    },
+    "type": "module",
+    "dependencies": {
+        "@rollup/plugin-replace": "^4.0.0",
+        "autoprefixer": "^10.4.7",
+        "axios": "^0.27.2",
+        "classnames": "^2.3.1",
+        "flowbite": "^1.4.7",
+        "postcss": "^8.4.14",
+        "rollup-plugin-svelte": "^7.1.0",
+        "svelte-frappe-charts": "^1.9.2",
+        "svelte-skeleton": "^1.3.1",
+        "svelte-table": "^0.5.0",
+        "tailwindcss": "^3.0.24",
+        "vest": "^4.4.2"
+    }
 }
